@@ -17,7 +17,7 @@ export const Directory = ({
         setToggle(!toggle);
       }}
     >
-      <span className=" hover:bg-gray-100 transition block p-2 truncate">
+      <span className=" hover:bg-gray-100 transition block pl-0 p-2 truncate">
         <DirectoryIcon />
         {item.title}
       </span>
