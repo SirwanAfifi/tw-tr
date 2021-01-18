@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import { withKnobs } from "@storybook/addon-knobs";
 import { Tree } from "./components/Tree";
 import data from "./data.json";
+import { ContextMenu } from "./components/ContextMenu";
+import { ContextMenuProvider } from "./context";
 
 export default {
   title: "Tree View",
@@ -9,8 +11,10 @@ export default {
 };
 
 export const Default = () => {
-  return <Tree root={data} />;
-};
-export const WithBG = () => {
-  return <Tree root={data} />;
+  return (
+    <ContextMenuProvider>
+      <ContextMenu />
+      <Tree root={data} />
+    </ContextMenuProvider>
+  );
 };

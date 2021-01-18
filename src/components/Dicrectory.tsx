@@ -7,15 +7,22 @@ import { Tree } from "./Tree";
 
 export const Directory = ({
   item,
-}: React.PropsWithChildren<{ item: File }>) => {
+  onContextMenu,
+  setShow,
+}: React.PropsWithChildren<{
+  item: File;
+  onContextMenu: (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
+  setShow: (s: boolean) => void;
+}>) => {
   const [toggle, setToggle] = useState(false);
-
   return (
     <Item
-      onClick={(e) => {
-        e.stopPropagation();
+      onClick={(event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+        event.stopPropagation();
         setToggle(!toggle);
+        setShow(false);
       }}
+      onContextMenu={onContextMenu}
     >
       <span className=" hover:bg-gray-100 transition block pl-0 p-2 truncate">
         <DirectoryIcon />
