@@ -1,6 +1,6 @@
 import { Transition } from "@headlessui/react";
 import React, { useState } from "react";
-import { File } from "./File";
+import { File } from "../types/File";
 import { DirectoryIcon } from "../Icons/Directory";
 import { Item } from "./Item";
 import { Tree } from "./Tree";

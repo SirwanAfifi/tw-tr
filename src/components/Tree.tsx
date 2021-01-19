@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { Directory } from "./Dicrectory";
-import { File } from "./File";
+import { File } from "../types/File";
 import { FileIcon } from "../Icons/File";
 import { Item } from "./Item";
 import { useContextMenu } from "../context";
