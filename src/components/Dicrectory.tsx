@@ -13,7 +13,7 @@ export const Directory = ({
   item: File;
   onContextMenu: (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
   setShow: (s: boolean) => void;
-}>) => {
+}>): JSX.Element => {
   const [toggle, setToggle] = useState(false);
   return (
     <Item

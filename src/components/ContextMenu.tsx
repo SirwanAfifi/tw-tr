@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useContextMenu } from "../context";
+import { State } from "../types/State";
 
-export const ContextMenu = () => {
-  const { show, setShow, position }: any = useContextMenu();
+export const ContextMenu = (): JSX.Element => {
+  const { show, setShow, position }: State = useContextMenu();
 
   useEffect(() => {
     const closeMenu = (event: MouseEvent) => {

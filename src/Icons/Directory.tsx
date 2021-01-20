@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-export const DirectoryIcon = () => (
+export const DirectoryIcon = (): JSX.Element => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"

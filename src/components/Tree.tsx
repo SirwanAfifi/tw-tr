@@ -1,13 +1,16 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useMemo } from "react";
 import { Directory } from "./Dicrectory";
 import { File } from "../types/File";
 import { FileIcon } from "../Icons/File";
 import { Item } from "./Item";
 import { useContextMenu } from "../context";
+import { State } from "../types/State";
 
-export const Tree = ({ root }: React.PropsWithChildren<{ root: File }>) => {
-  const { setShow, setPosition }: any = useContextMenu();
-  const color_gen = useCallback(
+export const Tree = ({
+  root,
+}: React.PropsWithChildren<{ root: File }>): JSX.Element => {
+  const { setShow, setPosition }: State = useContextMenu();
+  const color_gen = useMemo(
     () => Math.floor(Math.random() * 16777215).toString(16),
     []
   );
@@ -27,7 +30,7 @@ export const Tree = ({ root }: React.PropsWithChildren<{ root: File }>) => {
 
   return (
     <ul
-      style={{ borderLeftColor: `#${color_gen()}`, borderLeftWidth: 2 }}
+      style={{ borderLeftColor: `#${color_gen}`, borderLeftWidth: 2 }}
       className="p-2 pt-0 ml-2 mb-0 mt-0 pb-0 menu bg-default text-content-700"
     >
       {root.children &&
@@ -35,7 +38,7 @@ export const Tree = ({ root }: React.PropsWithChildren<{ root: File }>) => {
           if (item.children && item.children.length > 0)
             return (
               <Directory
-                key={index}
+                key={item.title}
                 item={item}
                 setShow={setShow}
                 onContextMenu={onContextMenu}
@@ -43,7 +46,7 @@ export const Tree = ({ root }: React.PropsWithChildren<{ root: File }>) => {
             );
           return (
             <Item
-              key={index}
+              key={item.title}
               onClick={(event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
                 event.stopPropagation();
                 setShow(false);

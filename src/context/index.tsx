@@ -2,7 +2,9 @@ import React, { createContext, useContext, useState } from "react";
 
 const ContextMenuContext = createContext({});
 
-export function ContextMenuProvider(props: React.PropsWithChildren<{}>) {
+export function ContextMenuProvider(
+  props: React.PropsWithChildren<{}>
+): JSX.Element {
   const [show, setShow] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
