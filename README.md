@@ -47,7 +47,9 @@ export const Default = () => {
 ## Running the project
 
 ```js
-yarn && yarn storybook
+yarn
+yarn build:tailwind
+yarn storybook
 ```
 
 ## Dependencies
