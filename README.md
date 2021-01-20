@@ -1,6 +1,6 @@
 ## TailwindCSS Tree View
 
-React Tree View Component built on top TailwindCSS.
+React Tree View Component built on top TailwindCSS/TypeScript.
 
 <div align="center" style="margin-top: 30px;">
 <img src="./assets/img.png" width="650"/>
@@ -43,3 +43,15 @@ export const Default = () => {
   );
 };
 ```
+
+## Running the project
+
+```js
+yarn && yarn storybook
+```
+
+## Dependencies
+
+- tailwindcss
+- @headlessui/react
+- typescript
