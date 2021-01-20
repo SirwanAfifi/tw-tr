@@ -28,6 +28,14 @@ export const Tree = ({
     [setShow, setPosition]
   );
 
+  const onItemClicked = useCallback(
+    (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+      event.stopPropagation();
+      setShow(false);
+    },
+    []
+  );
+
   return (
     <ul
       style={{ borderLeftColor: `#${color_gen}`, borderLeftWidth: 2 }}
@@ -47,10 +55,7 @@ export const Tree = ({
           return (
             <Item
               key={item.title}
-              onClick={(event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
-                event.stopPropagation();
-                setShow(false);
-              }}
+              onClick={onItemClicked}
               onContextMenu={onContextMenu}
             >
               <span className=" hover:bg-gray-100 transition block pl-0 p-2 truncate">

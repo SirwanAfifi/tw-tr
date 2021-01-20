@@ -1,5 +1,5 @@
 import { Transition } from "@headlessui/react";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { File } from "../types/File";
 import { DirectoryIcon } from "../Icons/Directory";
 import { Item } from "./Item";
@@ -14,16 +14,17 @@ export const Directory = ({
   onContextMenu: (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
   setShow: (s: boolean) => void;
 }>): JSX.Element => {
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState<boolean>(false);
+  const onItemClicked = useCallback(
+    (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+      event.stopPropagation();
+      setToggle(!toggle);
+      setShow(false);
+    },
+    []
+  );
   return (
-    <Item
-      onClick={(event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
-        event.stopPropagation();
-        setToggle(!toggle);
-        setShow(false);
-      }}
-      onContextMenu={onContextMenu}
-    >
+    <Item onClick={onItemClicked} onContextMenu={onContextMenu}>
       <span className=" hover:bg-gray-100 transition block pl-0 p-2 truncate">
         <DirectoryIcon />
         {item.title}
